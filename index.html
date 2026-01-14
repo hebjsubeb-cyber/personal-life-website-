@@ -15,16 +15,16 @@ body {
 /* ===== Title ===== */
 h1 {
   text-align: center;
-  margin: 50px 0 20px;
+  margin: 50px 0 30px;
   font-weight: 600;
 }
 
 /* ===== Circle Layout ===== */
 .circle-wrapper {
   position: relative;
-  width: 600px;
-  height: 600px;
-  margin: 40px auto 140px;
+  width: 700px;   /* ⬅️ 整个圈变大 */
+  height: 700px;
+  margin: 40px auto 160px;
 }
 
 .circle {
@@ -44,24 +44,24 @@ h1 {
 
 .item img {
   width: 100%;
-  border-radius: 14px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+  border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.25);
   transition: transform 0.25s ease;
 }
 
 .item img:hover {
-  transform: scale(1.06);
+  transform: scale(1.07);
 }
 
 .item p {
-  margin-top: 6px;
+  margin-top: 8px;
   font-size: 14px;
 }
 
 /* Floating animation */
 @keyframes float {
   0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  50% { transform: translateY(-8px); }
   100% { transform: translateY(0); }
 }
 
@@ -71,10 +71,10 @@ h1 {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 260px;
+  width: 300px;
   text-align: center;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.7;
   opacity: 0.85;
 }
 
@@ -118,35 +118,37 @@ h1 {
   cursor: pointer;
 }
 
-/* ===== Social Media Bar ===== */
+/* ===== Bottom Social Icons (Small Dots Style) ===== */
 .social-bar {
   position: fixed;
-  bottom: 20px;
+  bottom: 22px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
-  gap: 20px;
+  gap: 14px;
   z-index: 1000;
 }
 
 .social-bar a {
-  width: 44px;
-  height: 44px;
+  width: 34px;        /* ⬅️ 小圆点 */
+  height: 34px;
   background: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
 .social-bar a:hover {
-  transform: translateY(-4px) scale(1.08);
+  transform: scale(1.15);
+  opacity: 0.9;
 }
 
 .social-bar img {
-  width: 22px;
+  width: 18px;
+  height: 18px;
 }
 </style>
 </head>
@@ -166,43 +168,43 @@ h1 {
       is still thriving
     </div>
 
-    <!-- SCATTERED PHOTOS -->
-    <div class="item" style="top:-10px; left:250px;"
+    <!-- MORE SCATTERED PHOTOS -->
+    <div class="item" style="top:-20px; left:290px;"
       onclick="openModal('images/pic1.jpg','This is the first time I arrived at Pittsburgh, starting my college life.')">
       <img src="images/pic1.jpg"><p>Pittsburgh</p>
     </div>
 
-    <div class="item" style="top:80px; left:420px;"
+    <div class="item" style="top:80px; left:500px;"
       onclick="openModal('images/pic10.jpg','Foggy Seattle weekend at Pike Place Market.')">
       <img src="images/pic10.jpg"><p>Seattle</p>
     </div>
 
-    <div class="item" style="top:260px; left:470px;"
+    <div class="item" style="top:300px; left:540px;"
       onclick="openModal('images/pic12.jpg','New Year’s Eve in downtown Miami.')">
       <img src="images/pic12.jpg"><p>Miami</p>
     </div>
 
-    <div class="item" style="top:420px; left:430px;"
+    <div class="item" style="top:520px; left:440px;"
       onclick="openModal('images/pic3.jpg','Las Vegas felt like a familiar illusion of capitalism.')">
       <img src="images/pic3.jpg"><p>Las Vegas</p>
     </div>
 
-    <div class="item" style="top:500px; left:260px;"
+    <div class="item" style="top:600px; left:290px;"
       onclick="openModal('images/pic5.jpg','Stopping along Highway 1 in California.')">
       <img src="images/pic5.jpg"><p>California</p>
     </div>
 
-    <div class="item" style="top:410px; left:40px;"
+    <div class="item" style="top:520px; left:80px;"
       onclick="openModal('images/pic7.jpg','Went alone to a Pittsburgh hillside to clear my mind.')">
       <img src="images/pic7.jpg"><p>Pittsburgh Hillside</p>
     </div>
 
-    <div class="item" style="top:230px; left:-10px;"
+    <div class="item" style="top:300px; left:-20px;"
       onclick="openModal('images/pic9.jpg','Watching the sunset outside Waikiki Beach.')">
       <img src="images/pic9.jpg"><p>Honolulu</p>
     </div>
 
-    <div class="item" style="top:110px; left:90px;"
+    <div class="item" style="top:90px; left:100px;"
       onclick="openModal('images/pic11.jpg','Arriving in Florida for the first time.')">
       <img src="images/pic11.jpg"><p>Florida</p>
     </div>
@@ -219,7 +221,7 @@ h1 {
   </div>
 </div>
 
-<!-- SOCIAL MEDIA ICONS (ORDER: INSTAGRAM → SNAPCHAT → YOUTUBE) -->
+<!-- SOCIAL ICONS (SMALL, BOTTOM, INSTAGRAM → SNAP → YOUTUBE) -->
 <div class="social-bar">
   <a href="https://www.instagram.com/han_is_here_yep/" target="_blank">
     <img src="images/instalogo.jpg" alt="Instagram">

@@ -24,7 +24,7 @@ h1 {
   position: relative;
   width: 600px;
   height: 600px;
-  margin: 40px auto 120px;
+  margin: 40px auto 140px;
 }
 
 .circle {
@@ -33,27 +33,36 @@ h1 {
   height: 100%;
 }
 
+/* ===== Photo Items ===== */
 .item {
   position: absolute;
   width: 120px;
   text-align: center;
   cursor: pointer;
+  animation: float 6s ease-in-out infinite;
 }
 
 .item img {
   width: 100%;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
   transition: transform 0.25s ease;
 }
 
 .item img:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .item p {
   margin-top: 6px;
   font-size: 14px;
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
 }
 
 /* ===== Center Text ===== */
@@ -84,14 +93,14 @@ h1 {
 .modal-content {
   max-width: 900px;
   background: rgba(255,255,255,0.95);
-  border-radius: 12px;
+  border-radius: 14px;
   padding: 20px;
   text-align: center;
 }
 
 .modal-content img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .modal-content p {
@@ -109,7 +118,7 @@ h1 {
   cursor: pointer;
 }
 
-/* ===== Social Icons ===== */
+/* ===== Social Media Bar ===== */
 .social-bar {
   position: fixed;
   bottom: 20px;
@@ -133,7 +142,7 @@ h1 {
 }
 
 .social-bar a:hover {
-  transform: translateY(-4px) scale(1.05);
+  transform: translateY(-4px) scale(1.08);
 }
 
 .social-bar img {
@@ -157,76 +166,46 @@ h1 {
       is still thriving
     </div>
 
-    <!-- ITEMS (POSITIONS AROUND CIRCLE) -->
-    <div class="item" style="top:0; left:240px;" onclick="openModal('images/IMG_3974.jpg','This is the first time I arrived at Pittsburgh, starting my college life.')">
-      <img src="images/IMG_3974.jpg"><p>Pittsburgh</p>
+    <!-- SCATTERED PHOTOS -->
+    <div class="item" style="top:-10px; left:250px;"
+      onclick="openModal('images/pic1.jpg','This is the first time I arrived at Pittsburgh, starting my college life.')">
+      <img src="images/pic1.jpg"><p>Pittsburgh</p>
     </div>
 
-    <div class="item" style="top:90px; left:420px;" onclick="openModal('images/pic10.jpg','Foggy Seattle weekend at Pike Place.')">
+    <div class="item" style="top:80px; left:420px;"
+      onclick="openModal('images/pic10.jpg','Foggy Seattle weekend at Pike Place Market.')">
       <img src="images/pic10.jpg"><p>Seattle</p>
     </div>
 
-    <div class="item" style="top:240px; left:480px;" onclick="openModal('images/pic12.jpg','New Year’s Eve in Miami.')">
+    <div class="item" style="top:260px; left:470px;"
+      onclick="openModal('images/pic12.jpg','New Year’s Eve in downtown Miami.')">
       <img src="images/pic12.jpg"><p>Miami</p>
     </div>
 
-    <div class="item" style="top:390px; left:420px;" onclick="openModal('images/pic3.jpg','Las Vegas illusion.')">
+    <div class="item" style="top:420px; left:430px;"
+      onclick="openModal('images/pic3.jpg','Las Vegas felt like a familiar illusion of capitalism.')">
       <img src="images/pic3.jpg"><p>Las Vegas</p>
     </div>
 
-    <div class="item" style="top:480px; left:240px;" onclick="openModal('images/pic5.jpg','California Highway 1.')">
+    <div class="item" style="top:500px; left:260px;"
+      onclick="openModal('images/pic5.jpg','Stopping along Highway 1 in California.')">
       <img src="images/pic5.jpg"><p>California</p>
     </div>
 
-    <div class="item" style="top:390px; left:60px;" onclick="openModal('images/pic7.jpg','Pittsburgh hillside.')">
+    <div class="item" style="top:410px; left:40px;"
+      onclick="openModal('images/pic7.jpg','Went alone to a Pittsburgh hillside to clear my mind.')">
       <img src="images/pic7.jpg"><p>Pittsburgh Hillside</p>
     </div>
 
-    <div class="item" style="top:240px; left:0;" onclick="openModal('images/pic9.jpg','Waikiki sunset.')">
+    <div class="item" style="top:230px; left:-10px;"
+      onclick="openModal('images/pic9.jpg','Watching the sunset outside Waikiki Beach.')">
       <img src="images/pic9.jpg"><p>Honolulu</p>
     </div>
 
-    <div class="item" style="top:90px; left:60px;" onclick="openModal('images/pic11.jpg','First time in Florida.')">
+    <div class="item" style="top:110px; left:90px;"
+      onclick="openModal('images/pic11.jpg','Arriving in Florida for the first time.')">
       <img src="images/pic11.jpg"><p>Florida</p>
     </div>
 
   </div>
 </div>
-
-<!-- MODAL -->
-<div class="modal" id="modal">
-  <span class="close" onclick="closeModal()">&times;</span>
-  <div class="modal-content">
-    <img id="modal-img">
-    <p id="modal-text"></p>
-  </div>
-</div>
-
-<!-- SOCIAL MEDIA -->
-<div class="social-bar">
-  <a href="https://www.instagram.com/han_is_here_yep/" target="_blank">
-    <img src="icons/instagram.svg">
-  </a>
-  <a href="https://www.youtube.com/@jshzuaisb" target="_blank">
-    <img src="icons/youtube.svg">
-  </a>
-  <a href="https://www.snapchat.com/web" target="_blank">
-    <img src="icons/snapchat.svg">
-  </a>
-</div>
-
-<script>
-function openModal(imgSrc, text) {
-  document.getElementById("modal").style.display = "flex";
-  document.getElementById("modal-img").src = imgSrc;
-  document.getElementById("modal-text").innerText = text;
-}
-
-function closeModal() {
-  document.getElementById("modal").style.display = "none";
-}
-</script>
-
-</body>
-</html>
-

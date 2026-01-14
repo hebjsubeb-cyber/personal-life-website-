@@ -1,179 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My College Life</title>
+<meta charset="UTF-8">
+<title>My College Life</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Times New Roman", Times, serif;
-      font-weight: 500;
-      background: linear-gradient(
-        135deg,
-        #ff9a9e,
-        #fad0c4,
-        #fbc2eb,
-        #a1c4fd,
-        #c2e9fb,
-        #d4fc79,
-        #96e6a1
-      );
-      background-attachment: fixed;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: "Times New Roman", Times, serif;
+  background: linear-gradient(135deg, #ffb6c1, #ffd1dc, #ffe4ec);
+  min-height: 100vh;
+}
 
-    h1 {
-      text-align: center;
-      margin: 60px 0;
-      font-weight: 600;
-    }
+/* ===== Title ===== */
+h1 {
+  text-align: center;
+  margin: 50px 0 20px;
+  font-weight: 600;
+}
 
-    /* ===== Gallery Grid ===== */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 30px;
-      padding: 0 40px 80px;
-    }
+/* ===== Circle Layout ===== */
+.circle-wrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin: 40px auto 120px;
+}
 
-    .item {
-      text-align: center;
-      cursor: pointer;
-    }
+.circle {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
 
-    .item img {
-      width: 100%;
-      border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-      transition: transform 0.25s ease;
-    }
+.item {
+  position: absolute;
+  width: 120px;
+  text-align: center;
+  cursor: pointer;
+}
 
-    .item img:hover {
-      transform: scale(1.03);
-    }
+.item img {
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.25s ease;
+}
 
-    .item p {
-      margin-top: 8px;
-      font-size: 14px;
-      opacity: 0.8;
-    }
+.item img:hover {
+  transform: scale(1.05);
+}
 
-    /* ===== Modal ===== */
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 999;
-      inset: 0;
-      background: rgba(0,0,0,0.75);
-      justify-content: center;
-      align-items: center;
-      padding: 40px;
-    }
+.item p {
+  margin-top: 6px;
+  font-size: 14px;
+}
 
-    .modal-content {
-      max-width: 900px;
-      background: rgba(255,255,255,0.95);
-      border-radius: 12px;
-      padding: 20px;
-      text-align: center;
-    }
+/* ===== Center Text ===== */
+.center-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 260px;
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.85;
+}
 
-    .modal-content img {
-      width: 100%;
-      border-radius: 10px;
-    }
+/* ===== Modal ===== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
 
-    .modal-content p {
-      margin-top: 16px;
-      font-size: 17px;
-      line-height: 1.7;
-    }
+.modal-content {
+  max-width: 900px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+}
 
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 36px;
-      color: white;
-      cursor: pointer;
-    }
-  </style>
+.modal-content img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.modal-content p {
+  margin-top: 16px;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== Social Icons ===== */
+.social-bar {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 20px;
+  z-index: 1000;
+}
+
+.social-bar a {
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease;
+}
+
+.social-bar a:hover {
+  transform: translateY(-4px) scale(1.05);
+}
+
+.social-bar img {
+  width: 22px;
+}
+</style>
 </head>
 
 <body>
 
 <h1>My College Life</h1>
 
-<div class="gallery">
+<div class="circle-wrapper">
+  <div class="circle">
 
-  <div class="item" onclick="openModal('images/IMG_3974.jpg', 'This is the first time I arrived at Pittsburgh, starting my college life. I stood on the top of the signature incline and viewed the entire downtown.')">
-    <img src="images/IMG_3974.jpg">
-    <p>Pittsburgh</p>
+    <!-- CENTER TEXT -->
+    <div class="center-text">
+      Me, an international student,<br>
+      the life at USA,<br>
+      the adventure at USA,<br>
+      is still thriving
+    </div>
+
+    <!-- ITEMS (POSITIONS AROUND CIRCLE) -->
+    <div class="item" style="top:0; left:240px;" onclick="openModal('images/IMG_3974.jpg','This is the first time I arrived at Pittsburgh, starting my college life.')">
+      <img src="images/IMG_3974.jpg"><p>Pittsburgh</p>
+    </div>
+
+    <div class="item" style="top:90px; left:420px;" onclick="openModal('images/pic10.jpg','Foggy Seattle weekend at Pike Place.')">
+      <img src="images/pic10.jpg"><p>Seattle</p>
+    </div>
+
+    <div class="item" style="top:240px; left:480px;" onclick="openModal('images/pic12.jpg','New Year’s Eve in Miami.')">
+      <img src="images/pic12.jpg"><p>Miami</p>
+    </div>
+
+    <div class="item" style="top:390px; left:420px;" onclick="openModal('images/pic3.jpg','Las Vegas illusion.')">
+      <img src="images/pic3.jpg"><p>Las Vegas</p>
+    </div>
+
+    <div class="item" style="top:480px; left:240px;" onclick="openModal('images/pic5.jpg','California Highway 1.')">
+      <img src="images/pic5.jpg"><p>California</p>
+    </div>
+
+    <div class="item" style="top:390px; left:60px;" onclick="openModal('images/pic7.jpg','Pittsburgh hillside.')">
+      <img src="images/pic7.jpg"><p>Pittsburgh Hillside</p>
+    </div>
+
+    <div class="item" style="top:240px; left:0;" onclick="openModal('images/pic9.jpg','Waikiki sunset.')">
+      <img src="images/pic9.jpg"><p>Honolulu</p>
+    </div>
+
+    <div class="item" style="top:90px; left:60px;" onclick="openModal('images/pic11.jpg','First time in Florida.')">
+      <img src="images/pic11.jpg"><p>Florida</p>
+    </div>
+
   </div>
-
-  <div class="item" onclick="openModal('images/pic10.jpg', 'I went to Seattle on a random weekend, foggy day with a smooth mood, looking at the bay and listening to the noise from Pike Place Market.')">
-    <img src="images/pic10.jpg">
-    <p>Seattle</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic12.jpg', 'I spent New Year’s Eve 2024–2025 in downtown Miami, watching yachts and fireworks, listening to Caribbean music, and dancing with locals.')">
-    <img src="images/pic12.jpg">
-    <p>Miami</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic3.jpg', 'In the heart of Paradise, Las Vegas, the Statue of Liberty felt like a copy of New York — a familiar illusion of capitalism.')">
-    <img src="images/pic3.jpg">
-    <p>Las Vegas</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic5.jpg', 'During my freshman summer break, I stopped at UCSB along Highway 1, admiring the ocean and feeling a strange sense of envy.')">
-    <img src="images/pic5.jpg">
-    <p>California</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic7.jpg', 'After my midterm grades dropped, I went alone to a hillside in Pittsburgh to clear my mind.')">
-    <img src="images/pic7.jpg">
-    <p>Pittsburgh Hillside</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic9.jpg', 'Watching the sunset outside Waikiki Beach, slightly tipsy, the sea breeze felt incredible.')">
-    <img src="images/pic9.jpg">
-    <p>Honolulu</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic11.jpg', 'Arriving in Florida for the first time, I felt the heat and the welcoming Latin atmosphere.')">
-    <img src="images/pic11.jpg">
-    <p>Florida</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic1.jpg', 'Drinking with friends in the dorms, talking and falling asleep together.')">
-    <img src="images/pic1.jpg">
-    <p>Dorm Life</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic2.jpg', 'Driving across the Golden Gate Bridge during my sophomore spring, nearly missing a lane while looking up.')">
-    <img src="images/pic2.jpg">
-    <p>San Francisco</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic4.jpg', 'Leaving Las Vegas that morning felt like waking up from a dream.')">
-    <img src="images/pic4.jpg">
-    <p>Leaving Vegas</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic6.jpg', 'Transferring to Chicago, the river and skyscrapers overwhelmed me after rural life.')">
-    <img src="images/pic6.jpg">
-    <p>Chicago</p>
-  </div>
-
-  <div class="item" onclick="openModal('images/pic8.jpg', 'I have always been on the road.')">
-    <img src="images/pic8.jpg">
-    <p>On the Road</p>
-  </div>
-
 </div>
 
-<!-- Modal -->
+<!-- MODAL -->
 <div class="modal" id="modal">
   <span class="close" onclick="closeModal()">&times;</span>
   <div class="modal-content">
@@ -182,16 +202,29 @@
   </div>
 </div>
 
-<script>
-  function openModal(imgSrc, text) {
-    document.getElementById("modal").style.display = "flex";
-    document.getElementById("modal-img").src = imgSrc;
-    document.getElementById("modal-text").innerText = text;
-  }
+<!-- SOCIAL MEDIA -->
+<div class="social-bar">
+  <a href="https://www.instagram.com/han_is_here_yep/" target="_blank">
+    <img src="icons/instagram.svg">
+  </a>
+  <a href="https://www.youtube.com/@jshzuaisb" target="_blank">
+    <img src="icons/youtube.svg">
+  </a>
+  <a href="https://www.snapchat.com/web" target="_blank">
+    <img src="icons/snapchat.svg">
+  </a>
+</div>
 
-  function closeModal() {
-    document.getElementById("modal").style.display = "none";
-  }
+<script>
+function openModal(imgSrc, text) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-img").src = imgSrc;
+  document.getElementById("modal-text").innerText = text;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
 </script>
 
 </body>

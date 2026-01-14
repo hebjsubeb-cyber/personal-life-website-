@@ -3,156 +3,197 @@
 <head>
   <meta charset="UTF-8">
   <title>My College Life</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: #f7f7f7;
-      color: #222;
       margin: 0;
-      padding: 40px 20px;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
+      font-family: "Times New Roman", Times, serif;
+      font-weight: 500;
+      background: linear-gradient(
+        135deg,
+        #ff9a9e,
+        #fad0c4,
+        #fbc2eb,
+        #a1c4fd,
+        #c2e9fb,
+        #d4fc79,
+        #96e6a1
+      );
+      background-attachment: fixed;
     }
 
     h1 {
       text-align: center;
-      font-weight: normal;
-      margin-bottom: 60px;
+      margin: 60px 0;
+      font-weight: 600;
     }
 
-    figure {
-      margin: 0 0 80px 0;
+    /* ===== Gallery Grid ===== */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 30px;
+      padding: 0 40px 80px;
     }
 
-    img {
+    .item {
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .item img {
       width: 100%;
-      height: auto;
-      display: block;
-      margin-bottom: 16px;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+      transition: transform 0.25s ease;
     }
 
-    figcaption {
-      font-size: 16px;
-      line-height: 1.6;
-      color: #444;
+    .item img:hover {
+      transform: scale(1.03);
+    }
+
+    .item p {
+      margin-top: 8px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* ===== Modal ===== */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      inset: 0;
+      background: rgba(0,0,0,0.75);
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .modal-content {
+      max-width: 900px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 12px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .modal-content img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .modal-content p {
+      margin-top: 16px;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 36px;
+      color: white;
+      cursor: pointer;
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <h1>My College Life</h1>
 
-    <figure>
-      <img src="images/IMG_3974.jpg">
-      <figcaption>
-        This is the first time I arrived at Pittsburgh, starting my college life.
-        I stood on the top of the signature incline and viewed the entire downtown.
-      </figcaption>
-    </figure>
+<h1>My College Life</h1>
 
-    <figure>
-      <img src="images/pic10.jpg">
-      <figcaption>
-        I went to Seattle on a random weekend. It was a foggy day with a nice and smooth mood,
-        looking at the bay and listening to the noise from Pike Place Market.
-      </figcaption>
-    </figure>
+<div class="gallery">
 
-    <figure>
-      <img src="images/pic12.jpg">
-      <figcaption>
-        I spent New Year's Eve 2024–2025 in downtown Miami, watching the yachts and fireworks under the bridge,
-        listening to Caribbean-style music at Bayfront Park, and dancing with the locals.
-        It was incredibly lively and immersive.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic3.jpg">
-      <figcaption>
-        In the heart of Paradise, Las Vegas, a Statue of Liberty made me feel like I was back in New York,
-        though I suppose that is a common feature of capitalism.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic5.jpg">
-      <figcaption>
-        During my freshman summer break, I took a road trip along Highway 1 in California.
-        Stopping at the UCSB campus, we admired the ocean and one of the most beautiful campuses in the U.S.
-        I felt relaxed, yet strangely envious of the students there.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic7.jpg">
-      <figcaption>
-        After my grades dropped following midterms, I felt overwhelmed.
-        I went alone to a hillside in Pittsburgh to relieve stress and clear my mind.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic9.jpg">
-      <figcaption>
-        Watching the sunset outside Waikiki Beach in Honolulu, slightly tipsy after a tequila drink,
-        the sea breeze and ocean felt incredibly comforting.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic11.jpg">
-      <figcaption>
-        Arriving in Florida for the first time, I was excited to see the state sign on Interstate 95.
-        I immediately felt the heat and the welcoming openness of the Latin world.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic1.jpg">
-      <figcaption>
-        We drank with friends in the dorms, sharing Fireball and vodka.
-        We talked about the day and eventually fell asleep together.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic2.jpg">
-      <figcaption>
-        In the spring of my sophomore year, I visited San Francisco with a high school classmate.
-        Driving across the Golden Gate Bridge, the architecture was so striking we nearly missed our lane.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic4.jpg">
-      <figcaption>
-        Leaving Las Vegas that morning, looking back at the casinos felt unreal,
-        like waking up from a dream.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic6.jpg">
-      <figcaption>
-        When I transferred to Chicago, seeing the river flow through the city
-        and reflect the glass skyscrapers overwhelmed me after so much time in the countryside.
-      </figcaption>
-    </figure>
-
-    <figure>
-      <img src="images/pic8.jpg">
-      <figcaption>
-        I've always been on the road.
-      </figcaption>
-    </figure>
-
+  <div class="item" onclick="openModal('images/IMG_3974.jpg', 'This is the first time I arrived at Pittsburgh, starting my college life. I stood on the top of the signature incline and viewed the entire downtown.')">
+    <img src="images/IMG_3974.jpg">
+    <p>Pittsburgh</p>
   </div>
+
+  <div class="item" onclick="openModal('images/pic10.jpg', 'I went to Seattle on a random weekend, foggy day with a smooth mood, looking at the bay and listening to the noise from Pike Place Market.')">
+    <img src="images/pic10.jpg">
+    <p>Seattle</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic12.jpg', 'I spent New Year’s Eve 2024–2025 in downtown Miami, watching yachts and fireworks, listening to Caribbean music, and dancing with locals.')">
+    <img src="images/pic12.jpg">
+    <p>Miami</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic3.jpg', 'In the heart of Paradise, Las Vegas, the Statue of Liberty felt like a copy of New York — a familiar illusion of capitalism.')">
+    <img src="images/pic3.jpg">
+    <p>Las Vegas</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic5.jpg', 'During my freshman summer break, I stopped at UCSB along Highway 1, admiring the ocean and feeling a strange sense of envy.')">
+    <img src="images/pic5.jpg">
+    <p>California</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic7.jpg', 'After my midterm grades dropped, I went alone to a hillside in Pittsburgh to clear my mind.')">
+    <img src="images/pic7.jpg">
+    <p>Pittsburgh Hillside</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic9.jpg', 'Watching the sunset outside Waikiki Beach, slightly tipsy, the sea breeze felt incredible.')">
+    <img src="images/pic9.jpg">
+    <p>Honolulu</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic11.jpg', 'Arriving in Florida for the first time, I felt the heat and the welcoming Latin atmosphere.')">
+    <img src="images/pic11.jpg">
+    <p>Florida</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic1.jpg', 'Drinking with friends in the dorms, talking and falling asleep together.')">
+    <img src="images/pic1.jpg">
+    <p>Dorm Life</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic2.jpg', 'Driving across the Golden Gate Bridge during my sophomore spring, nearly missing a lane while looking up.')">
+    <img src="images/pic2.jpg">
+    <p>San Francisco</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic4.jpg', 'Leaving Las Vegas that morning felt like waking up from a dream.')">
+    <img src="images/pic4.jpg">
+    <p>Leaving Vegas</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic6.jpg', 'Transferring to Chicago, the river and skyscrapers overwhelmed me after rural life.')">
+    <img src="images/pic6.jpg">
+    <p>Chicago</p>
+  </div>
+
+  <div class="item" onclick="openModal('images/pic8.jpg', 'I have always been on the road.')">
+    <img src="images/pic8.jpg">
+    <p>On the Road</p>
+  </div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modal-img">
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<script>
+  function openModal(imgSrc, text) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modal-img").src = imgSrc;
+    document.getElementById("modal-text").innerText = text;
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+</script>
+
 </body>
 </html>
+

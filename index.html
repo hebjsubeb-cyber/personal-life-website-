@@ -209,3 +209,40 @@ h1 {
 
   </div>
 </div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <div class="modal-content">
+    <img id="modal-img">
+    <p id="modal-text"></p>
+  </div>
+</div>
+
+<!-- SOCIAL MEDIA ICONS (ORDER: INSTAGRAM → SNAPCHAT → YOUTUBE) -->
+<div class="social-bar">
+  <a href="https://www.instagram.com/han_is_here_yep/" target="_blank">
+    <img src="images/instalogo.jpg" alt="Instagram">
+  </a>
+  <a href="https://www.snapchat.com/web" target="_blank">
+    <img src="images/snaplogo.jpg" alt="Snapchat">
+  </a>
+  <a href="https://www.youtube.com/@jshzuaisb" target="_blank">
+    <img src="images/youtubelogo.jpg" alt="YouTube">
+  </a>
+</div>
+
+<script>
+function openModal(imgSrc, text) {
+  document.getElementById("modal").style.display = "flex";
+  document.getElementById("modal-img").src = imgSrc;
+  document.getElementById("modal-text").innerText = text;
+}
+
+function closeModal() {
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
